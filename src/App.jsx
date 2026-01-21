@@ -54,6 +54,35 @@ function RopePage() {
       <p><strong>Diameter:</strong> {rope.diameter} mm</p>
       <p><strong>Status:</strong> {rope.status}</p>
       <div style={{ marginTop: "20px" }}>
+  <h3>Rope Specifications</h3>
+
+  {rope.manufactureDate && (
+    <p>
+      <strong>Manufacture Date:</strong>{" "}
+      {new Date(rope.manufactureDate).toLocaleDateString()}
+    </p>
+  )}
+
+  {rope.length && (
+    <p>
+      <strong>Length:</strong> {rope.length} m
+    </p>
+  )}
+
+  {rope.batchNumber && (
+    <p>
+      <strong>Batch Number:</strong> {rope.batchNumber}
+    </p>
+  )}
+
+  {rope.uiaaFallsRating && (
+    <p>
+      <strong>UIAA Falls Rating:</strong> {rope.uiaaFallsRating}
+    </p>
+  )}
+</div>
+
+      <div style={{ marginTop: "20px" }}>
   <h3>Last Inspection</h3>
 
   {rope.lastInspection ? (
