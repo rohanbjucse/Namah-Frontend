@@ -28,8 +28,22 @@ function RopePage() {
   }, [ropeId]);
 
   if (!rope) {
-    return <div style={{ padding: "20px" }}>Loading rope data...</div>;
-  }
+  return (
+    <div
+      style={{
+        padding: "20px",
+        maxWidth: "500px",
+        margin: "0 auto",
+        textAlign: "center"
+      }}
+    >
+      <h2>Fetching rope safety profile</h2>
+      <p>
+        This may take a few seconds on first load.
+      </p>
+    </div>
+  );
+}
 
   return (
     <div style={{ padding: "20px" }}>
