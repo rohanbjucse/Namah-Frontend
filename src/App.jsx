@@ -17,6 +17,7 @@ function RopePage() {
 
   useEffect(() => {
     fetch(`https://namah-1.onrender.com/rope/${ropeId}/overview`)
+   // fetch(`https://localhost:3000/rope/${ropeId}/overview`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Rope data received:", data);
@@ -47,40 +48,44 @@ function RopePage() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Rope Identity</h1>
+      <h1>NAMAH Rope Passport</h1>
 
       <p><strong>Rope ID:</strong> {ropeId}</p>
       <p><strong>Model:</strong> {rope.model}</p>
-      <p><strong>Diameter:</strong> {rope.diameter} mm</p>
-      <p><strong>Status:</strong> {rope.status}</p>
+     {/* <p><strong>Diameter:</strong> {rope.diameter} mm</p>*/}
+     {/* <p><strong>Status:</strong> {rope.status}</p>*/}
       <div style={{ marginTop: "20px" }}>
+  
+  
+
   <h3>Rope Specifications</h3>
 
-  {rope.manufactureDate && (
+  {"manufactureDate" in rope && (
     <p>
       <strong>Manufacture Date:</strong>{" "}
       {new Date(rope.manufactureDate).toLocaleDateString()}
     </p>
   )}
-
-  {rope.length && (
+    <p><strong>Diameter:</strong> {rope.diameter} mm</p>
+  {"length" in rope && (
     <p>
       <strong>Length:</strong> {rope.length} m
     </p>
   )}
 
-  {rope.batchNumber && (
+  {"batchNumber" in rope && (
     <p>
       <strong>Batch Number:</strong> {rope.batchNumber}
     </p>
   )}
 
-  {rope.uiaaFallsRating && (
+  {"uiaaFallsRating" in rope && (
     <p>
       <strong>UIAA Falls Rating:</strong> {rope.uiaaFallsRating}
     </p>
   )}
 </div>
+
 
       <div style={{ marginTop: "20px" }}>
   <h3>Last Inspection</h3>
